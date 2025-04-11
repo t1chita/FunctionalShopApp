@@ -1,0 +1,152 @@
+[
+  {
+    "id": "1",
+    "name": "Wireless Headphones",
+    "price": 99.99,
+    "category": "Electronics",
+    "rating": 4.5,
+    "isInStock": true,
+    "isOnSale": false,
+    "imageURL": "https://plus.unsplash.com/premium_photo-1677838847721-2bf14b48c256?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8V2lyZWxlc3MlMjBIZWFkcGhvbmVzfGVufDB8fDB8fHww"
+  },
+  {
+    "id": "2",
+    "name": "Smartphone",
+    "price": 699.99,
+    "category": "Electronics",
+    "rating": 4.7,
+    "isInStock": true,
+    "isOnSale": true,
+    "imageURL": "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8U21hcnRwaG9uZXxlbnwwfHwwfHx8MA%3D%3D"
+  },
+  {
+    "id": "3",
+    "name": "Gaming Laptop",
+    "price": 1499.99,
+    "category": "Computers",
+    "rating": 4.8,
+    "isInStock": false,
+    "isOnSale": true,
+    "imageURL": "https://images.unsplash.com/photo-1640695257754-7e2932f9ad0f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8R2FtaW5nJTIwTGFwdG9wfGVufDB8fDB8fHww"
+  },
+  {
+    "id": "4",
+    "name": "Bluetooth Speaker",
+    "price": 49.99,
+    "category": "Electronics",
+    "rating": 4.3,
+    "isInStock": true,
+    "isOnSale": false,
+    "imageURL": "https://unsplash.com/photos/selective-focus-photography-of-black-and-gray-portable-speaker-VSYq9nS-fY0"
+  },
+  {
+    "id": "5",
+    "name": "Mechanical Keyboard",
+    "price": 89.99,
+    "category": "Accessories",
+    "rating": 4.6,
+    "isInStock": true,
+    "isOnSale": true,
+    "imageURL": "https://images.unsplash.com/photo-1625130694338-4110ba634e59?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fE1lY2hhbmljYWwlMjBLZXlib2FyZHxlbnwwfHwwfHx8MA%3D%3D"
+  },
+  {
+    "id": "6",
+    "name": "4K Monitor",
+    "price": 349.99,
+    "category": "Computers",
+    "rating": 4.7,
+    "isInStock": false,
+    "isOnSale": false,
+    "imageURL": "https://images.unsplash.com/photo-1527800792452-506aacb2101f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8NEslMjBNb25pdG9yfGVufDB8fDB8fHww"
+  },
+  {
+    "id": "7",
+    "name": "External Hard Drive",
+    "price": 129.99,
+    "category": "Storage",
+    "rating": 4.4,
+    "isInStock": true,
+    "isOnSale": true,
+    "imageURL": "https://images.unsplash.com/photo-1730578726048-b8f118d227e4?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fEV4dGVybmFsJTIwSGFyZCUyMERyaXZlfGVufDB8fDB8fHww"
+  },
+  {
+    "id": "8",
+    "name": "Smartwatch",
+    "price": 199.99,
+    "category": "Wearables",
+    "rating": 4.2,
+    "isInStock": true,
+    "isOnSale": false,
+    "imageURL": "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8U21hcnR3YXRjaHxlbnwwfHwwfHx8MA%3D%3D"
+  },
+  {
+    "id": "9",
+    "name": "Wireless Mouse",
+    "price": 39.99,
+    "category": "Accessories",
+    "rating": 4.5,
+    "isInStock": true,
+    "isOnSale": true,
+    "imageURL": "https://images.unsplash.com/photo-1577174881658-0f30ed549adc?q=80&w=2249&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  },
+  {
+    "id": "10",
+    "name": "Tablet",
+    "price": 599.99,
+    "category": "Electronics",
+    "rating": 4.6,
+    "isInStock": false,
+    "isOnSale": false,
+    "imageURL": "https://images.unsplash.com/photo-1557825835-70d97c4aa567?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fHRhYmxldHxlbnwwfHwwfHx8MA%3D%3D"
+  },
+  {
+    "id": "11",
+    "name": "Noise Cancelling Earbuds",
+    "price": 129.99,
+    "category": "Audio",
+    "rating": 4.4,
+    "isInStock": true,
+    "isOnSale": true,
+    "imageURL": "https://images.unsplash.com/photo-1733641839241-6ae7a628971f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Tm9pc2UlMjBDYW5jZWxsaW5nJTIwRWFyYnVkc3xlbnwwfHwwfHx8MA%3D%3D"
+  },
+  {
+    "id": "12",
+    "name": "Portable Charger",
+    "price": 29.99,
+    "category": "Accessories",
+    "rating": 4.3,
+    "isInStock": true,
+    "isOnSale": false,
+    "imageURL": "https://images.unsplash.com/photo-1706275399494-fb26bbc5da63?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8UG9ydGFibGUlMjBDaGFyZ2VyfGVufDB8fDB8fHww"
+  },
+  {
+    "id": "13",
+    "name": "DSLR Camera",
+    "price": 799.99,
+    "category": "Photography",
+    "rating": 4.7,
+    "isInStock": false,
+    "isOnSale": true,
+    "imageURL": "https://images.unsplash.com/photo-1546805022-9c4e4ab7e3a3?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8RFNMUiUyMENhbWVyYXxlbnwwfHwwfHx8MA%3D%3D"
+  },
+  {
+    "id": "14",
+    "name": "Gaming Chair",
+    "price": 249.99,
+    "category": "Furniture",
+    "rating": 4.6,
+    "isInStock": true,
+    "isOnSale": false,
+    "imageURL": "https://images.unsplash.com/photo-1612011213721-3936d387f318?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8R2FtaW5nJTIwQ2hhaXJ8ZW58MHx8MHx8fDA%3D"
+  },
+  {
+    "id": "15",
+    "name": "Smart TV",
+    "price": 1099.99,
+    "category": "Electronics",
+    "rating": 4.8,
+    "isInStock": false,
+    "isOnSale": true,
+    "imageURL": "https://images.unsplash.com/photo-1577979749830-f1d742b96791?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fFNtYXJ0JTIwVFZ8ZW58MHx8MHx8fDA%3D"
+  }
+]

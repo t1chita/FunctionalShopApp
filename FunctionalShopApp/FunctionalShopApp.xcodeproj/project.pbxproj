@@ -29,9 +29,33 @@
 		26E1976B2DA984ED0084DBCE /* FunctionalShopAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FunctionalShopAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		26E197952DA9B89B0084DBCE /* Exceptions for "FunctionalShopApp" folder in "FunctionalShopApp" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Source/Common/Composable/Utils.swift,
+			);
+			target = 26E197502DA984EA0084DBCE /* FunctionalShopApp */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+		26E197962DA9B89B0084DBCE /* Exceptions for "FunctionalShopApp" folder in "Copy Bundle Resources" phase from "FunctionalShopApp" target */ = {
+			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
+			buildPhase = 26E1974F2DA984EA0084DBCE /* Resources */;
+			membershipExceptions = (
+				Source/Common/Composable/Utils.swift,
+			);
+		};
+/* End PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		26E197532DA984EA0084DBCE /* FunctionalShopApp */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				26E197952DA9B89B0084DBCE /* Exceptions for "FunctionalShopApp" folder in "FunctionalShopApp" target */,
+				26E197962DA9B89B0084DBCE /* Exceptions for "FunctionalShopApp" folder in "Copy Bundle Resources" phase from "FunctionalShopApp" target */,
+			);
 			path = FunctionalShopApp;
 			sourceTree = "<group>";
 		};
