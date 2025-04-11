@@ -82,7 +82,7 @@ This project demonstrates several advanced Swift concepts:
 - Key path usage for dynamic property access
 - SwiftUI best practices
 
-//## 🔮 Future Enhancements
+## 🔮 Future Enhancements
 
 - Persistent storage with functional wrappers
 - Advanced animations using function composition
