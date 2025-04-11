@@ -71,7 +71,7 @@ The app follows a clean, functional architecture with these core components:
 
 1. Clone the repository
 2. Open the project in Xcode 14 or newer
-3. Build and run on iOS 15+ simulator or device
+3. Build and run on iOS 16+ simulator or device
 
 ## 📚 Learning Resources
 
@@ -82,22 +82,19 @@ This project demonstrates several advanced Swift concepts:
 - Key path usage for dynamic property access
 - SwiftUI best practices
 
-## 🔮 Future Enhancements
-
-- Persistent storage with functional wrappers
-- Advanced animations using function composition
-- Network layer with functional error handling
-- More statistical visualizations
+<!---->
+<!--## 🔮 Future Enhancements-->
+<!---->
+<!--- Persistent storage with functional wrappers-->
+<!--- Advanced animations using function composition-->
+<!--- Network layer with functional error handling-->
+<!--- More statistical visualizations-->
 
 ## 🔧 Requirements
 
-- iOS 15.0+
+- iOS 16.0+
 - Xcode 14.0+
 - Swift 5.5+
-
-## 📝 License
-
-MIT License - Feel free to use and modify!
 
 ---
 
