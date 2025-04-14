@@ -8,9 +8,15 @@
 import SwiftUI
 
 struct MyTabView: View {
+    private let mainListViewModel: MainListViewModel
+
+    init() {
+        self.mainListViewModel = Injection.shared.provideMainListViewModel()
+    }
+
     var body: some View {
         TabView {
-            MainListView()
+            MainListView(vm: mainListViewModel)
                 .tabItem {
                     Label("Home", systemImage: "house")
                 }

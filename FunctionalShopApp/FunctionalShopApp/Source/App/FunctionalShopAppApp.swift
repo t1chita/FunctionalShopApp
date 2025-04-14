@@ -11,7 +11,7 @@ import SwiftUI
 struct FunctionalShopAppApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MyTabView()
         }
     }
 }

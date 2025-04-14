@@ -141,46 +141,4 @@ struct FShopButton: View {
     }
 }
 
-enum FShopTextStyle {
-    case title
-    case subtitle
-    case body
-    case caption
-    case header
-    
-    var font: Font {
-        switch self {
-        case .title: return .system(size: 28, weight: .bold)
-        case .subtitle: return .system(size: 22, weight: .semibold)
-        case .header: return .system(size: 20, weight: .medium)
-        case .body: return .system(size: 16, weight: .regular)
-        case .caption: return .system(size: 12, weight: .light)
-        }
-    }
-    
-    var color: Color {
-        switch self {
-        case .title: return .primaryText
-        case .subtitle: return .secondary
-        case .header: return .blue
-        case .body: return .teritaryText
-        case .caption: return .teritaryText.opacity(0.6)
-        }
-    }
-}
-
-struct FShopText: View {
-    let text: String
-    let style: FShopTextStyle
-    var alignment: TextAlignment = .leading
-    var lineLimit: Int? = nil
-    
-    var body: some View {
-        Text(text)
-            .font(style.font)
-            .foregroundColor(style.color)
-            .multilineTextAlignment(alignment)
-            .lineLimit(lineLimit)
-    }
-}
 

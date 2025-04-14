@@ -33,7 +33,7 @@
 		26E197952DA9B89B0084DBCE /* Exceptions for "FunctionalShopApp" folder in "FunctionalShopApp" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Source/Common/Composable/Utils.swift,
+				Source/Core/Composable/Utils.swift,
 			);
 			target = 26E197502DA984EA0084DBCE /* FunctionalShopApp */;
 		};
@@ -44,7 +44,7 @@
 			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
 			buildPhase = 26E1974F2DA984EA0084DBCE /* Resources */;
 			membershipExceptions = (
-				Source/Common/Composable/Utils.swift,
+				Source/Core/Composable/Utils.swift,
 			);
 		};
 /* End PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
