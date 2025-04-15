@@ -41,7 +41,7 @@ struct ProductCard: View {
                 Image(systemName: "xmark")
                     .symbolVariant(.circle.fill)
                     .foregroundStyle(.red)
-                    .frame(height: 80)
+                    .frame(height: 180)
                     .frame(maxWidth: .infinity)
             @unknown default:
                 EmptyView()
@@ -52,12 +52,36 @@ struct ProductCard: View {
     }
     
     private func productDesc() -> some View {
+        VStack(alignment: .leading,spacing: 12) {
         VStack(alignment: .leading,spacing: 4) {
+            HStack {
+                FShopText(text: product.name, style: .header)
+                
+                Spacer()
+                
+                FShopCardText(text: product.category, style: .body)
+                .padding(6)
+                .padding(.horizontal, 4)
+                .background(
+                    Capsule()
+                            .stroke(lineWidth: 1)
+                            .foregroundStyle(.accent)
+                )
+            }
+            HStack(spacing: 4) {
+                FShopCardText(text: formattedPrice(), style: .body)
+                    .strikethrough(product.isOnSale, color: .red)
+                
+                if product.isOnSale  {
+                    FShopCardText(text: saledFormattedPrice(), style: .body)
+                        .foregroundStyle(.green)
+                }
+            }
             
-            FShopText(text: product.name, style: .header)
-            
-            FShopCardText(text: formattedPrice(), style: .body)
-            
+            FShopButton(title: "See More", style: .primary, size: .small) {
+                print("Button Tapped")
+            }
+        }
         }
         .padding(.horizontal, 12)
         .padding(.bottom, 8)
@@ -67,6 +91,12 @@ struct ProductCard: View {
     private func formattedPrice() -> String {
         // Convert the price to the current currency and format it
         let convertedPrice = currencyManager.convertPrice(product.price, from: .usd)
+        return currencyManager.format(price: convertedPrice)
+    }
+    
+    private func saledFormattedPrice() -> String {
+        // Convert the price to the current currency and format it
+        let convertedPrice = currencyManager.convertPrice(product.price.saledPrice(), from: .usd)
         return currencyManager.format(price: convertedPrice)
     }
 }
@@ -142,5 +172,11 @@ final class CurrencyManager: ObservableObject {
             .ignoresSafeArea()
         ProductCard(product: Product.MOCK_PRODUCT)
             .padding(.horizontal, 16)
+    }
+}
+
+extension Double {
+    func saledPrice() -> Double {
+        self * 0.8
     }
 }
