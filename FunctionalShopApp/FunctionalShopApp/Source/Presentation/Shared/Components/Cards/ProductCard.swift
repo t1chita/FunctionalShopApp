@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ProductCard: View {
     let product: Product
-    @StateObject private var currencyManager = CurrencyManager.shared // Access shared instance
+    @EnvironmentObject private var currencyManager: CurrencyManager// Access shared instance
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
             productImage()
@@ -124,6 +124,7 @@ enum AppCurrency: String, CaseIterable, Identifiable {
         }
     }
 }
+
 final class CurrencyManager: ObservableObject {
     static let shared = CurrencyManager()
 
@@ -164,14 +165,6 @@ final class CurrencyManager: ObservableObject {
         default:
             return 1.0
         }
-    }
-}
-#Preview {
-    ZStack {
-        Color.background
-            .ignoresSafeArea()
-        ProductCard(product: Product.MOCK_PRODUCT)
-            .padding(.horizontal, 16)
     }
 }
 

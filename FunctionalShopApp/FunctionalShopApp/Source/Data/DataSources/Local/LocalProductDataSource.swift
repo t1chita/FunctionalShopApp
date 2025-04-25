@@ -12,8 +12,13 @@ protocol LocalProductDataSource {
 }
 
 final class LocalProductDataSourceImpl: LocalProductDataSource {
+    private let networkService: NetworkServiceProtocol
+
+    init(networkService: NetworkServiceProtocol) {
+        self.networkService = networkService
+    }
+
     func loadProducts() async throws -> [Product] {
-        let products: [Product] = JSONLoader.load("products", as: [Product].self)
-        return products
+        return try await networkService.request(EndPointsManager.getProducts, responseType: [Product].self)
     }
 }

@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+import Lottie
 
 struct MainListView: View {
     @Bindable var vm: MainListViewModel
@@ -34,17 +34,6 @@ struct MainListView: View {
         }
     }
     
-    private func productsList() -> some View {
-        ScrollView {
-            LazyVStack(spacing: 16) {
-                ForEach(vm.products) { product in
-                    ProductCard(product: product)
-                }
-            }
-        }
-        .scrollIndicators(.hidden)
-    }
-    
     private func pageTitleAndSortingButton() -> some View {
         HStack(spacing: 4) {
             FShopText(text: "Products", style: .title)
@@ -67,8 +56,19 @@ struct MainListView: View {
                 }
             }
         }
-        
     }
+    
+    private func productsList() -> some View {
+        ScrollView {
+            LazyVStack(spacing: 16) {
+                ForEach(vm.products) { product in
+                    ProductCard(product: product)
+                }
+            }
+        }
+        .scrollIndicators(.hidden)
+    }
+    
 }
 
 #Preview {

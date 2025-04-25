@@ -29,6 +29,7 @@ final class MainListViewModel {
             applySort()
         }
     }
+    
     private var allProducts: [Product] = []
     
     init(fetchProductsUseCase: FetchProductsUseCase) {

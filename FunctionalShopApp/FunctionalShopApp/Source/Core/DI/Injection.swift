@@ -19,7 +19,7 @@ struct Injection {
 
     // Injecting LocalDataSource
     func provideLocalDataSource() -> LocalProductDataSource {
-        return LocalProductDataSourceImpl()
+        return LocalProductDataSourceImpl(networkService: provideNetworkService())
     }
 
     // Injecting FetchProductsUseCase
@@ -30,5 +30,10 @@ struct Injection {
     // Injecting MainListViewModel
     func provideMainListViewModel() -> MainListViewModel {
         return MainListViewModel(fetchProductsUseCase: provideFetchProductsUseCase())
+    }
+    
+    // Injecting NetworkService
+    func provideNetworkService() -> NetworkServiceProtocol {
+        return NetworkService() // or return a mock if needed for testing
     }
 }

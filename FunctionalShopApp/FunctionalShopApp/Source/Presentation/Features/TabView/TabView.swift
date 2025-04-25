@@ -21,7 +21,7 @@ struct MyTabView: View {
                     Label("Home", systemImage: "house")
                 }
 
-            FilterView()
+            FilterView(vm: FilterViewModel())
                 .tabItem {
                     Label("Filter", systemImage: "line.3.horizontal.decrease")
                 }
