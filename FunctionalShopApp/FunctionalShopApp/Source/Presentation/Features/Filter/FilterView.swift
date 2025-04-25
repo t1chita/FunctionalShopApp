@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct FilterView: View {
-    @State var offset: CGFloat = 0
     private let maxValue: CGFloat = 1000 // Maximum value in GEL
-    @State var selectedValue: CGFloat = 0
     @Bindable var vm: FilterViewModel
     @EnvironmentObject var currencyManager: CurrencyManager
     var body: some View {
@@ -35,6 +33,12 @@ struct FilterView: View {
                 ratingFilter()
                     .padding(.horizontal)
                 
+                toggleFilters()
+                    .padding(.horizontal)
+                
+                clearOrApplyFilters()
+                    .padding(.horizontal)
+                
                 Spacer()
             }
         }
@@ -51,19 +55,47 @@ struct FilterView: View {
     private func categorySegmentedControl() -> some View {
         ScrollViewReader { proxy in
             ScrollView(.horizontal) {
-                LazyHStack {
-                    ForEach(vm.categories, id: \.self) { category in
-                        categoryButton(category)
-                            .id(category)
+                HStack(spacing: 8) {
+                    Button {
+                        withAnimation {
+                            vm.selectedCategory = "" // Deselects category, shows all categories
+                        }
+                    } label: {
+                        Text("Any Category")
+                            .foregroundStyle(vm.selectedCategory.isEmpty ? .white : .primaryText)
+                            .font(.system(size: 14, weight: .semibold))
+                            .padding(.horizontal, 8)
+                            .padding(.vertical, 4)
+                            .background(
+                                Capsule()
+                                    .foregroundStyle(vm.selectedCategory.isEmpty ? .accent : .clear)
+                                    .overlay {
+                                        Capsule()
+                                            .stroke(lineWidth: 1)
+                                            .foregroundStyle(!vm.selectedCategory.isEmpty ? .accent : .clear)
+                                    }
+                            )
+                    }
+                    .padding(.leading, 16)
+                    .id("Any Category")
+
+                    LazyHStack {
+                        ForEach(vm.categories, id: \.self) { category in
+                            categoryButton(category)
+                                .id(category)
+                        }
                     }
                 }
-                .padding(.horizontal)
             }
             .frame(height: 26)
             .scrollIndicators(.hidden)
             .onChange(of: vm.selectedCategory) { oldValue, newValue in
-                withAnimation {
-                    proxy.scrollTo(newValue, anchor: .center)
+                withAnimation(.easeInOut) {
+                    if !vm.selectedCategory.isEmpty {
+                        proxy.scrollTo(vm.selectedCategory, anchor: .center)
+                    } else {
+                        proxy.scrollTo("Any Category", anchor: .center)
+                    }
                 }
             }
         }
@@ -102,7 +134,7 @@ struct FilterView: View {
                 
                 Spacer()
                 
-                Text(currencyManager.format(price: selectedValue))
+                Text(currencyManager.format(price: vm.selectedPrice))
                     .font(.system(size: 20, weight: .regular))
                     .foregroundStyle(.primaryText)
             }
@@ -116,7 +148,7 @@ struct FilterView: View {
                     
                     Capsule()
                         .foregroundStyle(.primaryButton)
-                        .frame(width: max(0, offset + 20), height: 16)
+                        .frame(width: max(0, vm.offset + 20), height: 16)
                     
                     Circle()
                         .fill(.primaryButton)
@@ -126,13 +158,13 @@ struct FilterView: View {
                                 .stroke(lineWidth: 2)
                                 .foregroundStyle(.accent)
                         }
-                        .offset(x: max(0, min(offset, totalWidth)))
+                        .offset(x: max(0, min(vm.offset, totalWidth)))
                         .gesture(
                             DragGesture()
                                 .onChanged { value in
                                     let newOffset = value.location.x - 8
-                                    self.offset = max(0, min(newOffset, totalWidth))
-                                    self.selectedValue = (offset / totalWidth) * maxValue
+                                    vm.offset = max(0, min(newOffset, totalWidth))
+                                    vm.selectedPrice = (vm.offset / totalWidth) * maxValue
                                 }
                         )
                 }
@@ -165,6 +197,72 @@ struct FilterView: View {
                             }
                         }
                 }
+            }
+        }
+    }
+    
+    private func toggleFilters() -> some View {
+        VStack(alignment: .leading, spacing: 12) {
+            HStack(spacing: 12) {
+                toggleButton(
+                    label: "In Stock",
+                    systemImage: "checkmark.circle",
+                    isSelected: vm.showInStockOnly
+                ) {
+                    vm.showInStockOnly.toggle()
+                }
+
+                toggleButton(
+                    label: "On Sale",
+                    systemImage: "tag.fill",
+                    isSelected: vm.showOnlyOnSale
+                ) {
+                    vm.showOnlyOnSale.toggle()
+                }
+                
+                Spacer()
+            }
+        }
+    }
+    
+    private func toggleButton(label: String,
+                              systemImage: String,
+                              isSelected: Bool,
+                              action: @escaping () -> Void) -> some View {
+        Button(action: {
+            withAnimation { action() }
+        }) {
+            HStack(spacing: 6) {
+                Image(systemName: systemImage)
+                    .font(.system(size: 14, weight: .semibold))
+                Text(label)
+                    .font(.system(size: 14, weight: .semibold))
+            }
+            .padding(.horizontal, 12)
+            .padding(.vertical, 6)
+            .background(
+                Capsule()
+                    .foregroundStyle(isSelected ? .accent : .clear)
+                    .overlay {
+                        Capsule()
+                            .stroke(.accent, lineWidth: 1)
+                    }
+            )
+            .foregroundStyle(isSelected ? .white : .accent)
+        }
+    }
+    
+    private func clearOrApplyFilters() -> some View {
+        HStack(spacing: 12) {
+            FShopButton(title: "Clear",
+                        style: vm.isClearDisabled ? .secondaryDisabled : .secondary, size: .small) {
+                withAnimation {
+                    vm.clearFilters()
+                }
+            }
+            
+            FShopButton(title: "Apply", style: .primary, size: .small) {
+                print("Clear")
             }
         }
     }
