@@ -21,4 +21,6 @@ final class FilterViewModel {
     ]
     
     var selectedCategory: String = ""
+    
+    var selectedRating: Int = 0
 }

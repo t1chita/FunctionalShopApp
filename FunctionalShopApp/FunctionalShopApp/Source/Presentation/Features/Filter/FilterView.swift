@@ -32,6 +32,9 @@ struct FilterView: View {
                 slider()
                     .padding(.horizontal)
                 
+                ratingFilter()
+                    .padding(.horizontal)
+                
                 Spacer()
             }
         }
@@ -89,39 +92,39 @@ struct FilterView: View {
                 )
         }
     }
-
+    
     private func slider() -> some View {
-        VStack(spacing: 20) {
+        VStack(spacing: 8) {
             HStack {
                 Text("Maximum price")
-                    .font(.system(size: 20, weight: .regular))
+                    .font(.system(size: 16, weight: .medium))
                     .foregroundStyle(.primaryText)
-
+                
                 Spacer()
-
+                
                 Text(currencyManager.format(price: selectedValue))
                     .font(.system(size: 20, weight: .regular))
                     .foregroundStyle(.primaryText)
             }
-
+            
             GeometryReader { geometry in
                 let totalWidth = geometry.size.width - 16 // padding for handle
                 ZStack(alignment: .leading) {
                     Capsule()
                         .foregroundStyle(.teritaryText)
-                        .frame(height: 24)
-
+                        .frame(height: 16)
+                    
                     Capsule()
                         .foregroundStyle(.primaryButton)
-                        .frame(width: max(0, offset + 20), height: 24)
-
+                        .frame(width: max(0, offset + 20), height: 16)
+                    
                     Circle()
                         .fill(.primaryButton)
-                        .frame(width: 32, height: 32)
+                        .frame(width: 24, height: 24)
                         .overlay {
                             Circle()
-                                .stroke(lineWidth: 1)
-                                .foregroundStyle(.primaryButton)
+                                .stroke(lineWidth: 2)
+                                .foregroundStyle(.accent)
                         }
                         .offset(x: max(0, min(offset, totalWidth)))
                         .gesture(
@@ -135,6 +138,34 @@ struct FilterView: View {
                 }
             }
             .frame(height: 20)
+        }
+    }
+    
+    private func ratingFilter() -> some View {
+        HStack(spacing: 8) {
+            Text("Minimum rating")
+                .font(.system(size: 16, weight: .medium))
+                .foregroundStyle(.primaryText)
+            
+            Spacer()
+            
+            HStack(spacing: 6) {
+                ForEach(1...5, id: \.self) { index in
+                    Image(systemName: index <= vm.selectedRating ? "star.fill" : "star")
+                        .resizable()
+                        .frame(width: 20, height: 20)
+                        .foregroundStyle(index <= vm.selectedRating ? .yellow : .teritaryText)
+                        .onTapGesture {
+                            withAnimation(.spring()) {
+                                if vm.selectedRating == 1 {
+                                    vm.selectedRating = 0
+                                } else {
+                                    vm.selectedRating = index
+                                }
+                            }
+                        }
+                }
+            }
         }
     }
 }
